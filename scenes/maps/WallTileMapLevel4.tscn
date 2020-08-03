@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sprites/maps/level 4/sprite_mur0.png" type="Texture" id=1]
+[ext_resource path="res://sprites/maps/level 4/sprite_mur2.png" type="Texture" id=2]
+[ext_resource path="res://sprites/maps/level 4/sprite_mur1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/maps/level 4/sprite_mur4.png" type="Texture" id=4]
+[ext_resource path="res://sprites/maps/level 4/sprite_mur5.png" type="Texture" id=5]
+[ext_resource path="res://sprites/maps/level 4/sprite_mur6.png" type="Texture" id=6]
+[ext_resource path="res://sprites/maps/level 4/sprite_mur3.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="WallTileMapLevel4" type="Node2D"]
+
+[node name="WallGroundLeft" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallGroundLeft"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallGroundLeft/StaticBody2D"]
+visible = false
+polygon = PoolVector2Array( -24, -32, 32, -32, 32, 32, -32, 32, -32, -24, -24, -32 )
+
+[node name="WallGroundCenter" type="Sprite" parent="."]
+position = Vector2( 96, 0 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallGroundCenter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallGroundCenter/StaticBody2D"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="WallGroundRight" type="Sprite" parent="."]
+position = Vector2( 192, 0 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallGroundRight"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallGroundRight/StaticBody2D"]
+visible = false
+polygon = PoolVector2Array( -32, -32, 24, -32, 32, -24, 32, 32, -32, 32, -32, -32 )
+
+[node name="WallInside" type="Sprite" parent="."]
+position = Vector2( 96, 96 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallInside"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallInside/StaticBody2D"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="WallRoofLeft" type="Sprite" parent="."]
+position = Vector2( 0, 192 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallRoofLeft"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallRoofLeft/StaticBody2D"]
+visible = false
+polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -24, 32, -32, 24 )
+
+[node name="WallRoofCenter" type="Sprite" parent="."]
+position = Vector2( 96, 192 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallRoofCenter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRoofCenter/StaticBody2D"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="WallRoofRight" type="Sprite" parent="."]
+position = Vector2( 192, 192 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallRoofRight"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallRoofRight/StaticBody2D"]
+visible = false
+polygon = PoolVector2Array( -32, -32, 32, -32, 32, 24, 24, 32, -32, 32 )
