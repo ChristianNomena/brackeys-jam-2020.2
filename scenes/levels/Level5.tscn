@@ -5,7 +5,7 @@
 
 [node name="Level5" type="Node2D"]
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, 334 )
-
 [node name="MapLevel5" parent="." instance=ExtResource( 2 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, 334 )
