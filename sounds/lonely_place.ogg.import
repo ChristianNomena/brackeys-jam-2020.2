@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lonely_place.ogg-93bb3e26bed6d11c3a88e0bab94154c8.oggstr"
+
+[deps]
+
+source_file="res://sounds/lonely_place.ogg"
+dest_files=[ "res://.import/lonely_place.ogg-93bb3e26bed6d11c3a88e0bab94154c8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

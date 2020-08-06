@@ -1,10 +1,245 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/maps/MapLevel2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Level2.cs" type="Script" id=3]
+[ext_resource path="res://scenes/enemies/Monster1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/enemies/Boss1.tscn" type="PackedScene" id=5]
 
 [node name="Level2" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="MapLevel2" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, -48 )
+
+[node name="MonstersPart1" type="Node2D" parent="."]
+
+[node name="Monster1" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 6872, -224 )
+
+[node name="Monster2" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 7112, -224 )
+
+[node name="Monster3" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 7320, -224 )
+
+[node name="Monster4" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 7536, -224 )
+
+[node name="Monster5" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 7736, -224 )
+
+[node name="Monster6" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 7944, -224 )
+
+[node name="Monster7" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 8136, -224 )
+
+[node name="Monster8" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 8312, -224 )
+
+[node name="Monster9" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 8520, -224 )
+
+[node name="Monster10" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 8744, -224 )
+
+[node name="Monster11" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 8984, -224 )
+
+[node name="Monster12" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 9192, -224 )
+
+[node name="Monster13" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 9408, -224 )
+
+[node name="Monster14" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 9608, -224 )
+
+[node name="Monster15" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 9816, -224 )
+
+[node name="Monster16" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 10008, -224 )
+
+[node name="Monster17" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 10184, -224 )
+
+[node name="Monster18" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 10392, -224 )
+
+[node name="Monster19" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 10648, -224 )
+
+[node name="Monster20" parent="MonstersPart1" instance=ExtResource( 4 )]
+position = Vector2( 10944, -224 )
+
+[node name="MonstersPart2" type="Node2D" parent="."]
+position = Vector2( 8688, -3256 )
+
+[node name="Monster1" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 6872, -224 )
+
+[node name="Monster2" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 7112, -224 )
+
+[node name="Monster3" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 7320, -224 )
+
+[node name="Monster4" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 7536, -224 )
+
+[node name="Monster5" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 7736, -224 )
+
+[node name="Monster6" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 7944, -224 )
+
+[node name="Monster7" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 8136, -224 )
+
+[node name="Monster8" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 8312, -224 )
+
+[node name="Monster9" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 8520, -224 )
+
+[node name="Monster10" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 8744, -224 )
+
+[node name="Monster11" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 8984, -224 )
+
+[node name="Monster12" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 9192, -224 )
+
+[node name="Monster13" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 9408, -224 )
+
+[node name="Monster14" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 9608, -224 )
+
+[node name="Monster15" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 9816, -224 )
+
+[node name="Monster16" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 10008, -224 )
+
+[node name="Monster17" parent="MonstersPart2" instance=ExtResource( 4 )]
+position = Vector2( 10184, -224 )
+
+[node name="MonstersPart3" type="Node2D" parent="."]
+position = Vector2( 2088, -2608 )
+
+[node name="Monster1" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 6872, -224 )
+
+[node name="Monster2" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 7112, -224 )
+
+[node name="Monster3" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 7320, -224 )
+
+[node name="Monster4" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 7536, -224 )
+
+[node name="Monster5" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 7736, -224 )
+
+[node name="Monster6" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 7944, -224 )
+
+[node name="Monster7" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 8136, -224 )
+
+[node name="Monster8" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 8312, -224 )
+
+[node name="Monster9" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 8520, -224 )
+
+[node name="Monster10" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 8744, -224 )
+
+[node name="Monster11" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 8984, -224 )
+
+[node name="Monster12" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 9192, -224 )
+
+[node name="Monster13" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 9408, -224 )
+
+[node name="Monster14" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 9608, -224 )
+
+[node name="Monster15" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 9816, -224 )
+
+[node name="Monster16" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 10008, -224 )
+
+[node name="Monster17" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 10184, -224 )
+
+[node name="Monster18" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 10392, -224 )
+
+[node name="Monster19" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 10648, -224 )
+
+[node name="Monster20" parent="MonstersPart3" instance=ExtResource( 4 )]
+position = Vector2( 10944, -224 )
+
+[node name="MonstersPart4" type="Node2D" parent="."]
+position = Vector2( 12368, -5440 )
+
+[node name="Monster1" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 6872, -224 )
+
+[node name="Monster2" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 7112, -224 )
+
+[node name="Monster3" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 7320, -224 )
+
+[node name="Monster4" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 7536, -224 )
+
+[node name="Monster5" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 7736, -224 )
+
+[node name="Monster6" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 7944, -224 )
+
+[node name="Monster7" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 8136, -224 )
+
+[node name="Monster8" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 8312, -224 )
+
+[node name="Monster9" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 8520, -224 )
+
+[node name="Monster10" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 8744, -224 )
+
+[node name="Monster11" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 8984, -224 )
+
+[node name="Monster12" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 9192, -224 )
+
+[node name="Monster13" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 9408, -224 )
+
+[node name="Monster14" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 9608, -224 )
+
+[node name="Monster15" parent="MonstersPart4" instance=ExtResource( 4 )]
+position = Vector2( 9816, -224 )
+
+[node name="Boss1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 23488, -5760 )
