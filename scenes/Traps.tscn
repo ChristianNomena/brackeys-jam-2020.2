@@ -17,7 +17,9 @@ region_rect = Rect2( 467, 13, 29, 21 )
 [node name="StaticBody2D" type="StaticBody2D" parent="Trap1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trap1/StaticBody2D"]
+rotation = 3.14159
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="Trap2" type="Sprite" parent="."]
 position = Vector2( 96, 0 )
@@ -29,7 +31,9 @@ region_rect = Rect2( 467, 13, 29, 21 )
 [node name="StaticBody2D" type="StaticBody2D" parent="Trap2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trap2/StaticBody2D"]
+rotation = 3.14159
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="Trap3" type="Sprite" parent="."]
 position = Vector2( 192, 0 )
@@ -41,7 +45,9 @@ region_rect = Rect2( 467, 13, 29, 21 )
 [node name="StaticBody2D" type="StaticBody2D" parent="Trap3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trap3/StaticBody2D"]
+rotation = 3.14159
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="Trap4" type="Sprite" parent="."]
 position = Vector2( 288, 0 )
@@ -53,7 +59,9 @@ region_rect = Rect2( 467, 13, 29, 21 )
 [node name="StaticBody2D" type="StaticBody2D" parent="Trap4"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trap4/StaticBody2D"]
+rotation = 3.14159
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="Trap5" type="Sprite" parent="."]
 position = Vector2( 384, 0 )
@@ -65,4 +73,6 @@ region_rect = Rect2( 467, 13, 29, 21 )
 [node name="StaticBody2D" type="StaticBody2D" parent="Trap5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trap5/StaticBody2D"]
+rotation = 3.14159
 shape = SubResource( 1 )
+one_way_collision = true

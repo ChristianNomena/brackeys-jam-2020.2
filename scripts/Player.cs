@@ -39,9 +39,12 @@ public class Player : KinematicBody2D
 
 	private void MovementLoop()
 	{
-		bool left = Input.IsActionPressed("ui_left");
-		bool right = Input.IsActionPressed("ui_right");
-		bool jump = Input.IsActionJustPressed("ui_select");
+		bool left = Input.IsActionPressed("player_move_left");
+		bool right = Input.IsActionPressed("player_move_right");
+
+		bool jump = Input.IsActionJustPressed("player_jump");
+		bool dash = Input.IsActionJustPressed("player_dash");
+
 		int horizontalDirection = Convert.ToInt32(right) - Convert.ToInt32(left);
 
 		// =============== Mouvement lineaire horizontal ===============
@@ -49,12 +52,20 @@ public class Player : KinematicBody2D
 		{
 			this.velocity.x = Math.Max(this.velocity.x - this.acceleration, -this.max_speed);
 			this.playerSprite.FlipH = true;
+			if (dash)
+			{
+				this.MouvementDash();
+			}
 			// Animation walk
 		}
 		else if (horizontalDirection == 1)
 		{
 			this.velocity.x = Math.Min(this.velocity.x + this.acceleration, this.max_speed);
 			this.playerSprite.FlipH = false;
+			if (dash)
+			{
+				this.MouvementDash();
+			}
 			// Animation walk
 		}
 		else
@@ -74,6 +85,19 @@ public class Player : KinematicBody2D
 		{
 			this.velocity.y = -jump_height;
 			jump_count++;
+		}
+		
+	}
+
+	private void MouvementDash()
+	{
+		if (this.playerSprite.FlipH == false)
+		{
+			this.velocity.x += 7000;
+		}
+		else
+		{
+			this.velocity.x -= 7000;
 		}
 	}
 }
