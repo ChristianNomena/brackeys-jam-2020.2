@@ -4,12 +4,14 @@ using System;
 public class Player : KinematicBody2D
 {
 	private double pesanteur, gravity, deceleration;
-	private int acceleration, max_speed, jump_height, jump_count;
+	private int acceleration, max_speed, jump_height, jump_count, player_anim_blend_pos;
 
 	private Vector2 vectorFloor;
 	private Vector2 velocity;
 
 	private Sprite playerSprite;
+	private AnimationTree playerAnim;
+	private AnimationNodeStateMachinePlayback playerAnimState; 
 	
 	public override void _Ready()
 	{
@@ -23,22 +25,28 @@ public class Player : KinematicBody2D
 		this.jump_height = 800;
 		this.jump_count = 0;
 		
+		this.player_anim_blend_pos = 1;
+		
 		this.vectorFloor = new Vector2(0, -1); // ===== Nous permet de savoir ou se trouve le sol =====
 		this.velocity = new Vector2();
 
 		this.playerSprite = (Sprite)GetNode("Sprite");
+		this.playerAnim = (AnimationTree)GetNode("AnimationTree");
+		this.playerAnimState = (AnimationNodeStateMachinePlayback)this.playerAnim.Get("parameters/playback");
 	}
 
 	public override void _PhysicsProcess(float delta)
 	{
 		this.MovementLoop();
+		this.playerAnim.Set("active", true);
 
 		this.velocity.y += Convert.ToSingle(gravity) * delta;
 		this.velocity = this.MoveAndSlide(this.velocity, this.vectorFloor);
 	}
 
 	private void MovementLoop()
-	{
+	{	
+		this.playerAnim.Set("parameters/Idle/blend_position", this.player_anim_blend_pos);
 		bool left = Input.IsActionPressed("player_move_left");
 		bool right = Input.IsActionPressed("player_move_right");
 
@@ -52,6 +60,7 @@ public class Player : KinematicBody2D
 		{
 			this.velocity.x = Math.Max(this.velocity.x - this.acceleration, -this.max_speed);
 			this.playerSprite.FlipH = true;
+			this.player_anim_blend_pos = -1;
 			if (dash)
 			{
 				this.MouvementDash();
@@ -62,16 +71,18 @@ public class Player : KinematicBody2D
 		{
 			this.velocity.x = Math.Min(this.velocity.x + this.acceleration, this.max_speed);
 			this.playerSprite.FlipH = false;
+			this.player_anim_blend_pos = 1;
 			if (dash)
 			{
 				this.MouvementDash();
 			}
 			// Animation walk
 		}
-		else
+		else if (horizontalDirection == 0)
 		{
 			this.velocity.x = Mathf.Lerp(this.velocity.x, 0, Convert.ToSingle(this.deceleration));
 			// Animation idle
+			this.playerAnimState.Travel("Idle");
 		}
 
 		// =============== Reinitialisation des sauts lorsqu'on touche le sol ===============
