@@ -62,6 +62,7 @@
     <Compile Include="scripts\Level1.cs" />
     <Compile Include="scripts\Level2.cs" />
     <Compile Include="scripts\Level3.cs" />
+    <Compile Include="scripts\Level5.cs" />
     <Compile Include="scripts\Player.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
