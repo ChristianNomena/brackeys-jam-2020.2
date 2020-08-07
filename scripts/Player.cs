@@ -19,7 +19,7 @@ public class Player : KinematicBody2D
 		this.gravity = 1000 * this.pesanteur;
 
 		this.acceleration = 10;
-		this.deceleration = 0.12;
+		this.deceleration = 0.24;
 
 		this.max_speed = 400;
 		this.jump_height = 800;
@@ -47,6 +47,7 @@ public class Player : KinematicBody2D
 	private void MovementLoop()
 	{	
 		this.playerAnim.Set("parameters/Idle/blend_position", this.player_anim_blend_pos);
+		this.playerAnim.Set("parameters/Run/blend_position", this.player_anim_blend_pos);
 		bool left = Input.IsActionPressed("player_move_left");
 		bool right = Input.IsActionPressed("player_move_right");
 
@@ -61,6 +62,11 @@ public class Player : KinematicBody2D
 			this.velocity.x = Math.Max(this.velocity.x - this.acceleration, -this.max_speed);
 			this.playerSprite.FlipH = true;
 			this.player_anim_blend_pos = -1;
+			if (this.IsOnFloor()) this.playerAnimState.Travel("Run");
+			else 
+			{
+				this.playerAnimState.Travel("Idle");
+			}
 			if (dash)
 			{
 				this.MouvementDash();
@@ -72,6 +78,11 @@ public class Player : KinematicBody2D
 			this.velocity.x = Math.Min(this.velocity.x + this.acceleration, this.max_speed);
 			this.playerSprite.FlipH = false;
 			this.player_anim_blend_pos = 1;
+			if (this.IsOnFloor()) this.playerAnimState.Travel("Run");
+			else 
+			{
+				this.playerAnimState.Travel("Idle");
+			}
 			if (dash)
 			{
 				this.MouvementDash();
@@ -82,7 +93,7 @@ public class Player : KinematicBody2D
 		{
 			this.velocity.x = Mathf.Lerp(this.velocity.x, 0, Convert.ToSingle(this.deceleration));
 			// Animation idle
-			this.playerAnimState.Travel("Idle");
+			if ( this.IsOnFloor())  this.playerAnimState.Travel("Idle");
 		}
 
 		// =============== Reinitialisation des sauts lorsqu'on touche le sol ===============

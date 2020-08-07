@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/maps/MapLevel5.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Level5.cs" type="Script" id=3]
+[ext_resource path="res://scenes/RoseBlanc.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/TriFleur.tscn" type="PackedScene" id=5]
 
 [node name="Level5" type="Node2D"]
 script = ExtResource( 3 )
@@ -11,3 +13,36 @@ script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 64, -48 )
+
+[node name="TriFleur" parent="." instance=ExtResource( 5 )]
+position = Vector2( 199.787, -2.37842 )
+
+[node name="TriFleur2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 992.046, -9.94608 )
+
+[node name="TriFleur3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2943.93, -2.43553 )
+
+[node name="RoseBlanc2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1924.48, -0.1483 )
+
+[node name="RoseBlanc4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 4028.52, 0.738998 )
+
+[node name="RoseBlanc5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 4133.64, -0.151901 )
+
+[node name="RoseBlanc" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1812.56, 0.0485535 )
+
+[node name="TriFleur4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 5405.12, -5.435 )
+
+[node name="TriFleur5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 6414.38, -319.114 )
+
+[node name="RoseBlanc6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 6652.22, -320.303 )
+
+[node name="RoseBlanc7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 6758.06, -323.87 )
