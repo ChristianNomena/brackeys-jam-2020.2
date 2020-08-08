@@ -4,7 +4,7 @@ using System;
 public class Player : KinematicBody2D
 {
 	private double pesanteur, gravity, deceleration;
-	private int acceleration, max_speed, jump_height, jump_count, player_anim_blend_pos;
+	private int acceleration, max_speed, jump_height, jump_count, player_anim_blend_pos, jump_offset;
 
 	private Vector2 vectorFloor;
 	private Vector2 velocity;
@@ -24,6 +24,7 @@ public class Player : KinematicBody2D
 		this.max_speed = 400;
 		this.jump_height = 800;
 		this.jump_count = 0;
+		this.jump_offset = 0;
 		
 		this.player_anim_blend_pos = 1;
 		
@@ -48,6 +49,9 @@ public class Player : KinematicBody2D
 	{	
 		this.playerAnim.Set("parameters/Idle/blend_position", this.player_anim_blend_pos);
 		this.playerAnim.Set("parameters/Run/blend_position", this.player_anim_blend_pos);
+		this.playerAnim.Set("parameters/Jump/blend_position", this.player_anim_blend_pos);
+		this.playerAnim.Set("parameters/Falling/blend_position", this.player_anim_blend_pos);
+		
 		bool left = Input.IsActionPressed("player_move_left");
 		bool right = Input.IsActionPressed("player_move_right");
 
@@ -63,33 +67,27 @@ public class Player : KinematicBody2D
 			this.playerSprite.FlipH = true;
 			this.player_anim_blend_pos = -1;
 			if (this.IsOnFloor()) this.playerAnimState.Travel("Run");
-			else 
-			{
-				this.playerAnimState.Travel("Idle");
-			}
+			
 			if (dash)
 			{
 				this.MouvementDash();
 			}
 			// Animation walk
 		}
-		else if (horizontalDirection == 1)
+		else if (horizontalDirection == 1) 
 		{
 			this.velocity.x = Math.Min(this.velocity.x + this.acceleration, this.max_speed);
 			this.playerSprite.FlipH = false;
 			this.player_anim_blend_pos = 1;
 			if (this.IsOnFloor()) this.playerAnimState.Travel("Run");
-			else 
-			{
-				this.playerAnimState.Travel("Idle");
-			}
+			
 			if (dash)
 			{
 				this.MouvementDash();
 			}
 			// Animation walk
 		}
-		else if (horizontalDirection == 0)
+		else if ((horizontalDirection == 0) && (this.IsOnFloor()))
 		{
 			this.velocity.x = Mathf.Lerp(this.velocity.x, 0, Convert.ToSingle(this.deceleration));
 			// Animation idle
@@ -106,9 +104,14 @@ public class Player : KinematicBody2D
 		if (jump == true && jump_count < 2)
 		{
 			this.velocity.y = -jump_height;
+			this.playerAnimState.Travel("Jump");
 			jump_count++;
+			// if (jump_count == 1 ) 
 		}
-		
+		if ((!this.IsOnFloor()) && ( (jump_count == 0) || (jump_count == 2)))
+		{
+			this.playerAnimState.Travel("Falling");
+		}
 	}
 
 	private void MouvementDash()
