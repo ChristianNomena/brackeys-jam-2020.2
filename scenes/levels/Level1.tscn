@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/maps/MapLevel1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Level1.cs" type="Script" id=3]
 [ext_resource path="res://fonts/Open_Sans/OpenSans-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://sounds/lonely_place.ogg" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -90,14 +91,9 @@ margin_right = 15007.0
 margin_bottom = -764.0
 custom_fonts/font = SubResource( 1 )
 text = "There is a death trap. You will die if you fall in"
-
-[node name="Object" type="Label" parent="Indications"]
-margin_left = 16000.0
-margin_top = -792.0
-margin_right = 16791.0
-margin_bottom = -764.0
-custom_fonts/font = SubResource( 1 )
-text = "Press CTRL to take the object"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Congratulations" type="Label" parent="Indications"]
 margin_left = 16704.0
@@ -106,4 +102,7 @@ margin_right = 17495.0
 margin_bottom = -773.0
 custom_fonts/font = SubResource( 1 )
 text = "Congratulations! You have finished the tutorial.
-Now, join the old sage up on the montain."
+Now, join the wise man up on the montain."
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )

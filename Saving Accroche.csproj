@@ -59,11 +59,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="scripts\Credits.cs" />
+    <Compile Include="scripts\Introduction.cs" />
     <Compile Include="scripts\Level1.cs" />
     <Compile Include="scripts\Level2.cs" />
     <Compile Include="scripts\Level3.cs" />
     <Compile Include="scripts\Level5.cs" />
+    <Compile Include="scripts\Menu.cs" />
     <Compile Include="scripts\Player.cs" />
+    <Compile Include="scripts\ReadyForLevel1.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

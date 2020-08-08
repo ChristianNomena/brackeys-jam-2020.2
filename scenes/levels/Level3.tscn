@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/maps/MapLevel3.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Level3.cs" type="Script" id=3]
 [ext_resource path="res://scenes/enemies/Monster2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/enemies/Boss2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sounds/Fear.wav" type="AudioStream" id=6]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource( 3 )
@@ -155,3 +156,6 @@ position = Vector2( 1080, -44 )
 
 [node name="Boss2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 40000, -832 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
