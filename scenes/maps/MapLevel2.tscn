@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://tiles/WallTileMapLevel2.tres" type="TileSet" id=1]
 [ext_resource path="res://tiles/Traps.tres" type="TileSet" id=2]
 [ext_resource path="res://sprites/maps/decor level 2.png" type="Texture" id=3]
+[ext_resource path="res://scripts/MapLevel2.gd" type="Script" id=4]
 
 [sub_resource type="TileSet" id=1]
 0/name = "decor level 2.png 0"
@@ -133,6 +134,7 @@
 8/z_index = 0
 
 [node name="MapLevel2" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="BG" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -157,3 +159,7 @@ tile_data = PoolIntArray( -8978444, 3, 0, -8978443, 3, 0, -8978442, 3, 0, -89784
 tile_set = ExtResource( 2 )
 format = 1
 tile_data = PoolIntArray( -2752210, 1, 0, -2752209, 1, 0, -2752208, 1, 0, -2752207, 1, 0, -1638377, 1, 0, -1638376, 1, 0, -1638375, 1, 0, -1638374, 1, 0, -1638373, 1, 0, -1638367, 1, 0, -1638366, 1, 0, -1638365, 1, 0, -1638364, 1, 0, -1638363, 1, 0, -1638362, 1, 0, -1638361, 1, 0, -1638360, 1, 0, -1638359, 1, 0, -1638358, 1, 0, -1638350, 1, 0, -1638349, 1, 0, -1638348, 1, 0, -1638347, 1, 0, -1638346, 1, 0, -1638326, 1, 0, -1638325, 1, 0, -1638324, 1, 0, -1638323, 1, 0, -1507057, 1, 0, -1507056, 1, 0, -1507055, 1, 0, -1507054, 1, 0, -1507052, 1, 0, -1507051, 1, 0, -1507050, 1, 0, -1507048, 1, 0, -1507047, 1, 0, -1507046, 1, 0, -1507044, 1, 0, -1507043, 1, 0, -1507042, 1, 0, -1507040, 1, 0, -1507039, 1, 0, -1507038, 1, 0, -1507037, 1, 0, -982974, 1, 0 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 150.0
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

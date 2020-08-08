@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tiles/WallTileMapLevel5.tres" type="TileSet" id=1]
 [ext_resource path="res://tiles/Traps.tres" type="TileSet" id=2]
 [ext_resource path="res://sprites/maps/Decor level 5 1.png" type="Texture" id=3]
 [ext_resource path="res://sprites/maps/Decor level 5 0.png" type="Texture" id=4]
+[ext_resource path="res://fonts/Open_Sans/OpenSans-Bold.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Decor level 5 0.png 0"
@@ -346,6 +347,10 @@
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64, 4032 )
 
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = ExtResource( 5 )
+
 [node name="MapLevel5" type="Node2D"]
 
 [node name="BG" type="TileMap" parent="."]
@@ -383,3 +388,18 @@ position = Vector2( 26112, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
 shape = SubResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 24448.0
+margin_top = 1472.0
+margin_right = 25534.0
+margin_bottom = 1609.0
+custom_fonts/font = SubResource( 3 )
+text = "Thank you for playing"
