@@ -349,7 +349,6 @@ extents = Vector2( 64, 4032 )
 [node name="MapLevel5" type="Node2D"]
 
 [node name="BG" type="TileMap" parent="."]
-visible = false
 tile_set = SubResource( 1 )
 cell_size = Vector2( 128, 128 )
 cell_custom_transform = Transform2D( 128, 0, 0, 128, 0, 0 )
