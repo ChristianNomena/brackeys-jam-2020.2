@@ -1,9 +1,10 @@
 using Godot;
 using System;
 
-public class Level3 : Node2D
+public class Level4 : Node2D
 {
-	// Called when the node enters the scene tree for the first time.
+	public static bool levelIsRunning = false;
+	
 	public override void _Ready()
 	{
 		float red = 0.31f;
@@ -11,6 +12,9 @@ public class Level3 : Node2D
 		float blue = 0.67f;
 
 		VisualServer.SetDefaultClearColor(new Color(red, green, blue));
+		
+		levelIsRunning = true;
+		Level3.levelIsRunning = false;
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

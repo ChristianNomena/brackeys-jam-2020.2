@@ -6,15 +6,20 @@ public class Player : KinematicBody2D
 	private double pesanteur, gravity, deceleration;
 	private int acceleration, max_speed, jump_height, jump_count, player_anim_blend_pos, jump_offset;
 
+	private int health;
+
 	private Vector2 vectorFloor;
 	private Vector2 velocity;
 
 	private Sprite playerSprite;
 	private AnimationTree playerAnim;
-	private AnimationNodeStateMachinePlayback playerAnimState; 
+	private AnimationNodeStateMachinePlayback playerAnimState;
+
+	// private Area2D area2D;
 	
 	public override void _Ready()
 	{
+		this.health = 100;
 		this.pesanteur = 1.5;
 		this.gravity = 1000 * this.pesanteur;
 
@@ -34,6 +39,8 @@ public class Player : KinematicBody2D
 		this.playerSprite = (Sprite)GetNode("Sprite");
 		this.playerAnim = (AnimationTree)GetNode("AnimationTree");
 		this.playerAnimState = (AnimationNodeStateMachinePlayback)this.playerAnim.Get("parameters/playback");
+
+		// this.area2D = (Area2D)GetNode("Area2D");
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -123,6 +130,32 @@ public class Player : KinematicBody2D
 		else
 		{
 			this.velocity.x -= 7000;
+		}
+	}
+
+	private void PlayerDie()
+	{
+		this.health = 100;
+
+		if (Level1.levelIsRunning || Level2.levelIsRunning || Level5.levelIsRunning)
+		{
+			this.SetPosition(new Vector2(64, -48));
+		}
+		else if (Level3.levelIsRunning)
+		{
+			this.SetPosition(new Vector2(64, 336));
+		}
+		else if (Level4.levelIsRunning)
+		{
+			this.SetPosition(new Vector2(64, 16));
+		}
+	}
+
+	private void OnArea2DBodyEntered(Node body)
+	{
+		if (body.IsInGroup("trap"))
+		{
+			this.PlayerDie();
 		}
 	}
 }

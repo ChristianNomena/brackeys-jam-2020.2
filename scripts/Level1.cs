@@ -5,6 +5,8 @@ public class Level1 : Node2D
 {
 	private AudioStreamPlayer audioStreamPlayer;
 
+	public static bool levelIsRunning = false;
+
 	public override void _Ready()
 	{
 		float red = 0.04f;
@@ -15,6 +17,8 @@ public class Level1 : Node2D
 
 		this.audioStreamPlayer = (AudioStreamPlayer)GetNode("AudioStreamPlayer");
 		audioStreamPlayer.Play();
+
+		levelIsRunning = true;
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

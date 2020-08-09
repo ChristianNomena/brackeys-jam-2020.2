@@ -64,8 +64,8 @@
     <Compile Include="scripts\Level1.cs" />
     <Compile Include="scripts\Level2.cs" />
     <Compile Include="scripts\Level3.cs" />
+    <Compile Include="scripts\Level4.cs" />
     <Compile Include="scripts\Level5.cs" />
-    <Compile Include="scripts\MapLevel1.cs" />
     <Compile Include="scripts\Menu.cs" />
     <Compile Include="scripts\Player.cs" />
     <Compile Include="scripts\ReadyForLevel1.cs" />
