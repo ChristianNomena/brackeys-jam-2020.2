@@ -72,49 +72,44 @@ public class Player : KinematicBody2D
 		bool dash = Input.IsActionJustPressed("player_dash");
 		
 		bool attack = Input.IsActionJustPressed("player_attack_1");
-		
 
 		int horizontalDirection = Convert.ToInt32(right) - Convert.ToInt32(left);
 
-		if (attack == true ) this.playerAnimState.Travel("Attack");
+		if (attack == true)
+		{
+			this.playerAnimState.Travel("Attack");
+		}
+
 		// =============== Mouvement lineaire horizontal ===============
-		if ((horizontalDirection == -1) && (!attack) && (!dashing))
+		if ((horizontalDirection == -1) && (!attack) && (!this.dashing))
 		{
 			this.velocity.x = Math.Max(this.velocity.x - this.acceleration, -this.max_speed);
 			this.playerSprite.FlipH = true;
 			this.player_anim_blend_pos = -1;
-			if (this.IsOnFloor()) this.playerAnimState.Travel("Run");
-			
-			if (dash)
-			{
-				this.MouvementDash();
-				this.dashing = true;
-				this.playerAnimState.Travel("Dash");
-				this.dashing = false;
-			}
+
 			// Animation walk
+			if (this.IsOnFloor()) this.playerAnimState.Travel("Run");
 		}
-		else if ((horizontalDirection == 1) && ((!attack) || (!dashing)))
+
+		else if ((horizontalDirection == 1) && (!attack) && (!this.dashing))
 		{
 			this.velocity.x = Math.Min(this.velocity.x + this.acceleration, this.max_speed);
 			this.playerSprite.FlipH = false;
 			this.player_anim_blend_pos = 1;
-			if (this.IsOnFloor()) this.playerAnimState.Travel("Run");
-			
-			if (dash)
-			{
-				this.MouvementDash();
-				this.dashing = true;
-				this.playerAnimState.Travel("Dash");
-				this.dashing = false;
-			}
+
 			// Animation walk
+			if (this.IsOnFloor()) this.playerAnimState.Travel("Run");
 		}
-		else if ((horizontalDirection == 0) && (this.IsOnFloor()) && (attack == false) && (dash == false)) 
+
+		else if ((horizontalDirection == 0) && (this.IsOnFloor()) && (attack == false) && (dash == false))
 		{
 			this.velocity.x = Mathf.Lerp(this.velocity.x, 0, Convert.ToSingle(this.deceleration));
+
 			// Animation idle
-			if ( this.IsOnFloor())  this.playerAnimState.Travel("Idle");
+			if (this.IsOnFloor())
+			{
+				this.playerAnimState.Travel("Idle");
+			}
 		}
 
 		// =============== Reinitialisation des sauts lorsqu'on touche le sol ===============
@@ -122,8 +117,19 @@ public class Player : KinematicBody2D
 		{
 			this.jump_count = 0;
 		}
-		
-		
+
+		// =============== Mouvement de dash ===============
+		if (this.velocity.x >= 10 || this.velocity.x <= -10)
+		{
+			if (dash)
+			{
+				this.MouvementDash();
+				this.dashing = true;
+				// Animation dash
+				this.playerAnimState.Travel("Dash");
+				this.dashing = false;
+			}
+		}
 
 		// =============== Realisation des sauts ===============
 		if (jump == true && jump_count < 2)
