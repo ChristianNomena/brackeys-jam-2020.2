@@ -7,6 +7,8 @@ public class Player : KinematicBody2D
 	private int acceleration, max_speed, jump_height, jump_count, player_anim_blend_pos, jump_offset;
 
 	private int health;
+	
+	private bool dashing;
 
 	private Vector2 vectorFloor;
 	private Vector2 velocity;
@@ -33,6 +35,8 @@ public class Player : KinematicBody2D
 		
 		this.player_anim_blend_pos = 1;
 		
+		this.dashing = false;
+		
 		this.vectorFloor = new Vector2(0, -1); // ===== Nous permet de savoir ou se trouve le sol =====
 		this.velocity = new Vector2();
 
@@ -58,17 +62,23 @@ public class Player : KinematicBody2D
 		this.playerAnim.Set("parameters/Run/blend_position", this.player_anim_blend_pos);
 		this.playerAnim.Set("parameters/Jump/blend_position", this.player_anim_blend_pos);
 		this.playerAnim.Set("parameters/Falling/blend_position", this.player_anim_blend_pos);
+		this.playerAnim.Set("parameters/Dash/blend_position", this.player_anim_blend_pos);
+		this.playerAnim.Set("parameters/Attack/blend_position", this.player_anim_blend_pos);
 		
 		bool left = Input.IsActionPressed("player_move_left");
 		bool right = Input.IsActionPressed("player_move_right");
 
 		bool jump = Input.IsActionJustPressed("player_jump");
 		bool dash = Input.IsActionJustPressed("player_dash");
+		
+		bool attack = Input.IsActionJustPressed("player_attack_1");
+		
 
 		int horizontalDirection = Convert.ToInt32(right) - Convert.ToInt32(left);
 
+		if (attack == true ) this.playerAnimState.Travel("Attack");
 		// =============== Mouvement lineaire horizontal ===============
-		if (horizontalDirection == -1)
+		if ((horizontalDirection == -1) && (!attack) && (!dashing))
 		{
 			this.velocity.x = Math.Max(this.velocity.x - this.acceleration, -this.max_speed);
 			this.playerSprite.FlipH = true;
@@ -78,10 +88,13 @@ public class Player : KinematicBody2D
 			if (dash)
 			{
 				this.MouvementDash();
+				this.dashing = true;
+				this.playerAnimState.Travel("Dash");
+				this.dashing = false;
 			}
 			// Animation walk
 		}
-		else if (horizontalDirection == 1) 
+		else if ((horizontalDirection == 1) && ((!attack) || (!dashing)))
 		{
 			this.velocity.x = Math.Min(this.velocity.x + this.acceleration, this.max_speed);
 			this.playerSprite.FlipH = false;
@@ -91,10 +104,13 @@ public class Player : KinematicBody2D
 			if (dash)
 			{
 				this.MouvementDash();
+				this.dashing = true;
+				this.playerAnimState.Travel("Dash");
+				this.dashing = false;
 			}
 			// Animation walk
 		}
-		else if ((horizontalDirection == 0) && (this.IsOnFloor()))
+		else if ((horizontalDirection == 0) && (this.IsOnFloor()) && (attack == false) && (dash == false)) 
 		{
 			this.velocity.x = Mathf.Lerp(this.velocity.x, 0, Convert.ToSingle(this.deceleration));
 			// Animation idle
@@ -106,6 +122,8 @@ public class Player : KinematicBody2D
 		{
 			this.jump_count = 0;
 		}
+		
+		
 
 		// =============== Realisation des sauts ===============
 		if (jump == true && jump_count < 2)
@@ -115,7 +133,7 @@ public class Player : KinematicBody2D
 			jump_count++;
 			// if (jump_count == 1 ) 
 		}
-		if ((!this.IsOnFloor()) && ( (jump_count == 0) || (jump_count == 2)))
+		if ((!this.IsOnFloor()) && ( (jump_count == 0) || (jump_count == 2)) && (dashing == false))
 		{
 			this.playerAnimState.Travel("Falling");
 		}
