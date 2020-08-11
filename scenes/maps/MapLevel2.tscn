@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://tiles/WallTileMapLevel2.tres" type="TileSet" id=1]
 [ext_resource path="res://tiles/Traps.tres" type="TileSet" id=2]
 [ext_resource path="res://sprites/maps/decor level 2.png" type="Texture" id=3]
-[ext_resource path="res://scripts/MapLevel2.gd" type="Script" id=4]
 [ext_resource path="res://scenes/traps/Trap2.tscn" type="PackedScene" id=5]
 
 [sub_resource type="TileSet" id=1]
@@ -135,7 +134,6 @@
 8/z_index = 0
 
 [node name="MapLevel2" type="Node2D"]
-script = ExtResource( 4 )
 
 [node name="BG" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -159,10 +157,6 @@ tile_data = PoolIntArray( -8978444, 3, 0, -8978443, 3, 0, -8978442, 3, 0, -89784
 visible = false
 tile_set = ExtResource( 2 )
 format = 1
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 70.0
-autostart = true
 
 [node name="Traps" type="Node2D" parent="."]
 
@@ -334,4 +328,3 @@ position = Vector2( 17568, -1440 )
 
 [node name="Trap7" parent="Traps/TrapsPart11" instance=ExtResource( 5 )]
 position = Vector2( 17632, -1440 )
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

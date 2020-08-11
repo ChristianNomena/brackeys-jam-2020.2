@@ -31,7 +31,6 @@ public class Menu : Control
 
 	private void OnPressedPlayButton()
 	{
-		Introduction.readyIntroduction = true;
 		GetTree().ChangeScene("res://scenes/stories/Introduction.tscn");
 	}
 

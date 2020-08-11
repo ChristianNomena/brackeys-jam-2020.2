@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Winds of Venus - Tomasz Kucza.ogg-d31c4228af5f6753696da748c21ef7dc.oggstr"
+
+[deps]
+
+source_file="res://sounds/Winds of Venus - Tomasz Kucza.ogg"
+dest_files=[ "res://.import/Winds of Venus - Tomasz Kucza.ogg-d31c4228af5f6753696da748c21ef7dc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

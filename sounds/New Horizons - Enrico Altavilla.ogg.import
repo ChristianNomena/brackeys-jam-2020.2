@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/New Horizons - Enrico Altavilla.ogg-bc3449f408a9e0851f3c14244d5f761b.oggstr"
+
+[deps]
+
+source_file="res://sounds/New Horizons - Enrico Altavilla.ogg"
+dest_files=[ "res://.import/New Horizons - Enrico Altavilla.ogg-bc3449f408a9e0851f3c14244d5f761b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

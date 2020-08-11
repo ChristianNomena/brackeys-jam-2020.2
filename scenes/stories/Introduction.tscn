@@ -3,8 +3,8 @@
 [ext_resource path="res://sprites/gui/background.png" type="Texture" id=1]
 [ext_resource path="res://fonts/Open_Sans/OpenSans-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://fonts/Open_Sans/OpenSans-Bold.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://scripts/Introduction.cs" type="Script" id=4]
-[ext_resource path="res://sounds/Fear.wav" type="AudioStream" id=5]
+[ext_resource path="res://scripts/Introduction.gd" type="Script" id=4]
+[ext_resource path="res://sounds/Winds of Venus - Tomasz Kucza.ogg" type="AudioStream" id=5]
 [ext_resource path="res://scenes/stories/ReadyForLevel1.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
@@ -121,8 +121,11 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 12.0
+autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+autoplay = true
 
 [node name="ReadyForLevel1" parent="." instance=ExtResource( 6 )]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

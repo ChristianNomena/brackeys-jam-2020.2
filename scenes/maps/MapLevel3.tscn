@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://tiles/WallTileMapLevel3.tres" type="TileSet" id=1]
 [ext_resource path="res://tiles/Traps.tres" type="TileSet" id=2]
 [ext_resource path="res://sprites/maps/decor level 3.png" type="Texture" id=3]
-[ext_resource path="res://scripts/MapLevel3.gd" type="Script" id=4]
 [ext_resource path="res://scenes/traps/Trap3.tscn" type="PackedScene" id=5]
 
 [sub_resource type="TileSet" id=1]
@@ -205,7 +204,6 @@
 13/z_index = 0
 
 [node name="MapLevel3" type="Node2D"]
-script = ExtResource( 4 )
 
 [node name="BG" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -230,10 +228,6 @@ visible = false
 tile_set = ExtResource( 2 )
 format = 1
 tile_data = PoolIntArray( -1572618, 2, 0, -1572617, 2, 0, -1572616, 2, 0, -1179428, 2, 0, -1179427, 2, 0, -1179426, 2, 0, -1179411, 2, 0, -1179410, 2, 0, -1179409, 2, 0, -917211, 2, 0, -917210, 2, 0, -917209, 2, 0, -917208, 2, 0, -917207, 2, 0, -917206, 2, 0, -917205, 2, 0, -917204, 2, 0, -917203, 2, 0, -917202, 2, 0, -917201, 2, 0, -917200, 2, 0, -917199, 2, 0, -917198, 2, 0, -917197, 2, 0, -917196, 2, 0, -917195, 2, 0, -917194, 2, 0, -917193, 2, 0, -917192, 2, 0, -917191, 2, 0, -917190, 2, 0, -917189, 2, 0, -917188, 2, 0, -917187, 2, 0, -917186, 2, 0, -917185, 2, 0, -917184, 2, 0, -917183, 2, 0, -917182, 2, 0, -917181, 2, 0, -917180, 2, 0, -917179, 2, 0, -917178, 2, 0, -917177, 2, 0, -917176, 2, 0, -917175, 2, 0, -917174, 2, 0, 153, 2, 0, 154, 2, 0, 155, 2, 0, 156, 2, 0, 157, 2, 0, 158, 2, 0, 159, 2, 0, 160, 2, 0, 161, 2, 0, 162, 2, 0, 163, 2, 0, 164, 2, 0, 165, 2, 0, 166, 2, 0, 167, 2, 0, 168, 2, 0, 169, 2, 0, 170, 2, 0, 171, 2, 0, 172, 2, 0, 173, 2, 0, 174, 2, 0, 175, 2, 0, 176, 2, 0, 177, 2, 0, 178, 2, 0, 179, 2, 0, 180, 2, 0, 181, 2, 0, 182, 2, 0, 183, 2, 0, 184, 2, 0, 185, 2, 0, 186, 2, 0, 458839, 2, 0, 458840, 2, 0, 458841, 2, 0, 458842, 2, 0, 458843, 2, 0 )
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 60.0
-autostart = true
 
 [node name="Traps" type="Node2D" parent="."]
 
@@ -512,4 +506,3 @@ position = Vector2( 2336, -24 )
 
 [node name="Trap40" parent="Traps/TrapsPart6" instance=ExtResource( 5 )]
 position = Vector2( 2400, -24 )
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
