@@ -19,6 +19,7 @@ var velocity = Vector2()
 
 onready var playerSprite = $Sprite
 onready var playerAnim = $AnimationTree
+
 var playerAnimState : AnimationNodeStateMachinePlayback
 
 onready var timer_attack = $TimerAttack

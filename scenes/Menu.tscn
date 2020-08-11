@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sprites/gui/background.png" type="Texture" id=1]
 [ext_resource path="res://fonts/sketchalot/Sketchalot.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://sprites/gui/exit.png" type="Texture" id=5]
 [ext_resource path="res://sounds/My Lonely Place - Hinterhe.ogg" type="AudioStream" id=6]
 [ext_resource path="res://scenes/Credits.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/PlayButton.gd" type="Script" id=8]
+[ext_resource path="res://sprites/gui/exit_hover.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -66,6 +68,7 @@ margin_top = 360.0
 margin_right = 704.0
 margin_bottom = 520.0
 texture_normal = ExtResource( 4 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -91,6 +94,7 @@ margin_top = 528.0
 margin_right = 704.0
 margin_bottom = 688.0
 texture_normal = ExtResource( 4 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -116,6 +120,8 @@ margin_top = 464.0
 margin_right = 898.0
 margin_bottom = 597.0
 texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 9 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
