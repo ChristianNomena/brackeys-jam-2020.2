@@ -111,6 +111,7 @@ func MovementLoop():
 			
 			$CollisionShape2D.disabled = true
 			$CollisionShape2DJump.disabled = false
+			jump_count += 1
 		
 		# =============== Mouvement de Falling ===============
 		if (not(self.is_on_floor()) and (not(dash)) and (self.jump_count == 0 or self.jump_count == 2)):
