@@ -11,4 +11,4 @@ func _ready():
 func _process(delta):
 	if readyLevel1:
 		if Input.is_action_just_released("accept_control"):
-			get_tree().change_scene("res://scenes/Gameplay.tscn")
+			get_tree().change_scene("res://scenes/levels/Level1.tscn")

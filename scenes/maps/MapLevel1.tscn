@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tiles/WallTileMapLevel1.tres" type="TileSet" id=1]
 [ext_resource path="res://tiles/Traps.tres" type="TileSet" id=2]
@@ -104,6 +104,9 @@
 6/shape_one_way_margin = 0.0
 6/shapes = [  ]
 6/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 768 )
 
 [node name="MapLevel1" type="Node2D"]
 
@@ -215,3 +218,12 @@ position = Vector2( 352, -32 )
 
 [node name="Trap6" parent="Traps/TrapsPart4" instance=ExtResource( 5 )]
 position = Vector2( 416, -32 )
+
+[node name="EntryLevel2" type="StaticBody2D" parent="." groups=[
+"entryLevel2",
+]]
+position = Vector2( 25856, -5376 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntryLevel2"]
+shape = SubResource( 2 )
+one_way_collision = true

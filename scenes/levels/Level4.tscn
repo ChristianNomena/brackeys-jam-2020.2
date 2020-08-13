@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/maps/MapLevel4.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Level4.gd" type="Script" id=3]
+[ext_resource path="res://sounds/New Horizons - Enrico Altavilla.ogg" type="AudioStream" id=4]
 [ext_resource path="res://fonts/Open_Sans/OpenSans-Regular.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
@@ -19,6 +20,7 @@ position = Vector2( 0, -64 )
 position = Vector2( 64, -48 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 autoplay = true
 
 [node name="Indications" type="Control" parent="."]
@@ -35,12 +37,26 @@ margin_top = 328.0
 margin_right = 4405.0
 margin_bottom = 383.0
 custom_fonts/font = SubResource( 1 )
-text = "Press SHIFT while walking to dash"
+text = "Press SHIFT or B while walking to dash"
 
 [node name="Dash2" type="Label" parent="Indications"]
-margin_left = 2168.0
+margin_left = 1840.0
 margin_top = 1672.0
-margin_right = 2533.0
+margin_right = 2550.0
 margin_bottom = 1727.0
 custom_fonts/font = SubResource( 1 )
-text = "Press SHIFT while walking to dash"
+text = "Press SHIFT or B while walking to dash"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dash3" type="Label" parent="Indications"]
+margin_left = 19504.0
+margin_top = 3024.0
+margin_right = 20214.0
+margin_bottom = 3079.0
+custom_fonts/font = SubResource( 1 )
+text = "Press SHIFT or B while walking to dash"
+__meta__ = {
+"_edit_use_anchors_": false
+}

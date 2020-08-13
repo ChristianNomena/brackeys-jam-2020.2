@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/maps/MapLevel2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Level2.gd" type="Script" id=3]
 [ext_resource path="res://scenes/enemies/Monster1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/enemies/Boss1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sounds/Winds of Venus - Tomasz Kucza.ogg" type="AudioStream" id=6]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 3 )
@@ -245,4 +246,5 @@ position = Vector2( 9816, -224 )
 position = Vector2( 23488, -5760 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 autoplay = true

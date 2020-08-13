@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/ReadyForLevel4.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Open_Sans/OpenSans-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+font_data = ExtResource( 2 )
+
+[node name="ReadyForLevel4" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -384.0
+margin_right = 512.0
+margin_bottom = 384.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Node2D"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 24.0
+margin_top = 208.0
+margin_right = 1004.0
+margin_bottom = 295.0
+custom_fonts/font = SubResource( 1 )
+text = "The young boy is next to the victory.
+Good luck young hero."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Node2D"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 276.0
+margin_top = 374.0
+margin_right = 734.0
+margin_bottom = 423.0
+custom_fonts/font = SubResource( 2 )
+text = "Ready to dash the level?"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Node2D"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 276.0
+margin_top = 512.0
+margin_right = 748.0
+margin_bottom = 561.0
+custom_fonts/font = SubResource( 2 )
+text = "Press ENTER or START"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Node2D"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 276.0
+margin_top = 632.0
+margin_right = 748.0
+margin_bottom = 681.0
+custom_fonts/font = SubResource( 2 )
+text = "DASH unlock"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

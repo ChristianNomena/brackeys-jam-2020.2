@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var health = 100
+var potion = 3
 
 var pesanteur = 1.5
 var gravity = 1000 * self.pesanteur
@@ -38,7 +39,7 @@ func _physics_process(delta):
 	self.playerAnim.set("active", true)
 	
 	self.velocity.y += gravity * delta
-	self.velocity = self.move_and_slide(self.velocity, self.vectorFloor)
+	self.velocity = move_and_slide(velocity, vectorFloor)
 
 
 func InitAnimation():
@@ -60,7 +61,13 @@ func MovementLoop():
 	var dash = Input.is_action_just_pressed("player_dash")
 	var attack = Input.is_action_just_pressed("player_attack")
 	
+	var healing = Input.is_action_just_pressed("player_interact")
+	
 	var horizontalDirection = int(right) - int(left)
+	
+	# =============== Remettre partie de PV ===============
+	if self.potion > 0:
+		self.HealingPlayer()
 	
 	# =============== Mouvement d'attaque ===============
 	if attack:
@@ -100,17 +107,12 @@ func MovementLoop():
 				
 		# =============== Reinitialisation de Jump ===============
 		if self.is_on_floor():
-			$CollisionShape2D.disabled = false
-			$CollisionShape2DJump.disabled = true
 			self.jump_count = 0
 		
 		# =============== Mouvement de Jump ===============
 		if (jump and jump_count < 2):
 			self.velocity.y = self.jump_height * (-1)
 			self.playerAnimState.travel("Jump")
-			
-			$CollisionShape2D.disabled = true
-			$CollisionShape2DJump.disabled = false
 			jump_count += 1
 		
 		# =============== Mouvement de Falling ===============
@@ -140,6 +142,30 @@ func PlayerDie():
 	self.position.y = -48
 
 
+func HealingPlayer():
+	self.health += 25
+	
+	if self.health > 100:
+		self.health = 100
+
+
 func _on_Area2D_body_entered(body):
+	print(body.get_groups())
+	
 	if body.is_in_group("trap"):
 		self.PlayerDie()
+		
+	if body.is_in_group("enemy"):
+		self.health -= 20
+	
+	if body.is_in_group("entryLevel2"):
+		get_tree().change_scene("res://scenes/stories/ReadyForLevel2.tscn")
+		
+	if body.is_in_group("entryLevel3"):
+		get_tree().change_scene("res://scenes/stories/ReadyForLevel3.tscn")
+		
+	if body.is_in_group("entryLevel4"):
+		get_tree().change_scene("res://scenes/stories/ReadyForLevel4.tscn")
+		
+	if body.is_in_group("entryLevel5"):
+		get_tree().change_scene("res://scenes/stories/ReadyForLevel5.tscn")
