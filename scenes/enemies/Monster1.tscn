@@ -1,27 +1,29 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://sprites/monster/Monster 1.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Monster1.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 22, 14 )
 
-[node name="Monster1" type="Node2D"]
+[node name="Monster1" type="KinematicBody2D" groups=[
+"enemy",
+]]
+script = ExtResource( 2 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-
-[node name="CollisionShape2DLeft" type="CollisionShape2D" parent="KinematicBody2D"]
+[node name="CollisionShape2DLeft" type="CollisionShape2D" parent="."]
 position = Vector2( 6, 0 )
 scale = Vector2( 2, 2 )
 shape = SubResource( 1 )
 
-[node name="CollisionShape2DRIght" type="CollisionShape2D" parent="KinematicBody2D"]
+[node name="CollisionShape2DRIght" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( -4, 0 )
 scale = Vector2( 2, 2 )
 shape = SubResource( 1 )
 disabled = true
 
-[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 2, 0 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )

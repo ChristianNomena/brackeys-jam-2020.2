@@ -26,6 +26,9 @@ var playerAnimState : AnimationNodeStateMachinePlayback
 onready var timer_attack = $TimerAttack
 onready var timer_dash = $TimerDash
 
+var Fire = preload("res://scenes/Fire.tscn")
+
+var attacking = false
 # var dashing = false
 
 
@@ -70,10 +73,15 @@ func MovementLoop():
 		self.HealingPlayer()
 	
 	# =============== Mouvement d'attaque ===============
-	if attack:
+	if (attack and self.timer_attack.time_left == 0):
+		self.attacking = true
 		self.timer_attack.start()
 		self.velocity.x = 0
 		self.playerAnimState.travel("Attack")
+		
+	if (self.timer_attack.time_left > 0.17 and self.timer_attack.time_left < 0.25 and attacking):
+		self.NewFire()
+		self.attacking = false
 	
 	if (self.timer_attack.time_left < 0.1 and self.timer_attack.time_left > 0):
 		self.timer_attack.stop()
@@ -149,9 +157,20 @@ func HealingPlayer():
 		self.health = 100
 
 
-func _on_Area2D_body_entered(body):
-	print(body.get_groups())
+func NewFire():
+	var direction = 1
+	$Muzzle.position.x = 28
 	
+	if $Sprite.flip_h:
+		direction = -1
+		$Muzzle.position.x = -28
+	
+	var fire = Fire.instance()
+	fire.new_start($Muzzle.global_position, direction)
+	self.get_parent().add_child(fire)
+
+
+func _on_Area2D_body_entered(body):
 	if body.is_in_group("trap"):
 		self.PlayerDie()
 		

@@ -37,22 +37,22 @@ position = Vector2( 512, 0 )
 position = Vector2( 640, 0 )
 
 [node name="Monster8" parent="MonstersPart1" instance=ExtResource( 4 )]
-position = Vector2( 1600, -16 )
+position = Vector2( 1600, 0 )
 
 [node name="Monster9" parent="MonstersPart1" instance=ExtResource( 4 )]
-position = Vector2( 1728, -16 )
+position = Vector2( 1728, -4 )
 
 [node name="Monster10" parent="MonstersPart1" instance=ExtResource( 4 )]
-position = Vector2( 1856, -16 )
+position = Vector2( 1856, -4 )
 
 [node name="Monster11" parent="MonstersPart1" instance=ExtResource( 4 )]
-position = Vector2( 1984, -16 )
+position = Vector2( 1984, -4 )
 
 [node name="Monster12" parent="MonstersPart1" instance=ExtResource( 4 )]
-position = Vector2( 2112, -16 )
+position = Vector2( 2112, -4 )
 
 [node name="Monster13" parent="MonstersPart1" instance=ExtResource( 4 )]
-position = Vector2( 2240, -16 )
+position = Vector2( 2240, -4 )
 
 [node name="MonstersPart2" type="Node2D" parent="."]
 position = Vector2( 14528, -1620 )
