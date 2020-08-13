@@ -49,13 +49,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TitleLabel" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 675.0
+margin_top = -192.0
+margin_right = 1233.0
+margin_bottom = -126.0
+custom_fonts/font = SubResource( 1 )
+text = "THE TEAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Team" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="Team"]
 margin_left = 216.0
-margin_top = 328.0
-margin_right = 376.0
-margin_bottom = 359.0
+margin_top = 299.0
+margin_right = 436.0
+margin_bottom = 341.0
 custom_fonts/font = SubResource( 2 )
 text = "Level Designer"
 __meta__ = {
@@ -64,9 +77,9 @@ __meta__ = {
 
 [node name="Label2" type="Label" parent="Team"]
 margin_left = 215.0
-margin_top = 360.0
+margin_top = 331.0
 margin_right = 461.0
-margin_bottom = 402.0
+margin_bottom = 373.0
 custom_fonts/font = SubResource( 3 )
 text = "ChristianNomena"
 __meta__ = {
@@ -75,9 +88,9 @@ __meta__ = {
 
 [node name="Label3" type="Label" parent="Team"]
 margin_left = 552.0
-margin_top = 328.0
+margin_top = 299.0
 margin_right = 810.0
-margin_bottom = 370.0
+margin_bottom = 341.0
 custom_fonts/font = SubResource( 2 )
 text = "Graphic Designer"
 __meta__ = {
@@ -86,9 +99,9 @@ __meta__ = {
 
 [node name="Label4" type="Label" parent="Team"]
 margin_left = 552.0
-margin_top = 360.0
+margin_top = 331.0
 margin_right = 715.0
-margin_bottom = 402.0
+margin_bottom = 373.0
 custom_fonts/font = SubResource( 3 )
 text = "Zulmianah"
 __meta__ = {
@@ -97,9 +110,9 @@ __meta__ = {
 
 [node name="Label5" type="Label" parent="Team"]
 margin_left = 296.0
-margin_top = 432.0
+margin_top = 403.0
 margin_right = 580.0
-margin_bottom = 474.0
+margin_bottom = 445.0
 custom_fonts/font = SubResource( 2 )
 text = "Animator"
 __meta__ = {
@@ -108,9 +121,9 @@ __meta__ = {
 
 [node name="Label6" type="Label" parent="Team"]
 margin_left = 296.0
-margin_top = 464.0
+margin_top = 435.0
 margin_right = 500.0
-margin_bottom = 506.0
+margin_bottom = 477.0
 custom_fonts/font = SubResource( 3 )
 text = "JulianoJosoa13"
 __meta__ = {
@@ -119,9 +132,9 @@ __meta__ = {
 
 [node name="Label7" type="Label" parent="Team"]
 margin_left = 656.0
-margin_top = 432.0
+margin_top = 403.0
 margin_right = 863.0
-margin_bottom = 474.0
+margin_bottom = 445.0
 custom_fonts/font = SubResource( 2 )
 text = "Programmer"
 __meta__ = {
@@ -130,11 +143,80 @@ __meta__ = {
 
 [node name="Label8" type="Label" parent="Team"]
 margin_left = 656.0
-margin_top = 464.0
+margin_top = 435.0
 margin_right = 869.0
-margin_bottom = 506.0
+margin_bottom = 477.0
 custom_fonts/font = SubResource( 3 )
 text = "Heriniaina1905"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="Node2D" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="Music"]
+margin_left = 216.0
+margin_top = 299.0
+margin_right = 456.0
+margin_bottom = 341.0
+custom_fonts/font = SubResource( 2 )
+text = "My Lonely Place"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Music"]
+margin_left = 216.0
+margin_top = 331.0
+margin_right = 429.0
+margin_bottom = 373.0
+custom_fonts/font = SubResource( 3 )
+text = "Hinterhe"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Music"]
+margin_left = 552.0
+margin_top = 299.0
+margin_right = 792.0
+margin_bottom = 341.0
+custom_fonts/font = SubResource( 2 )
+text = "New Horizons"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Music"]
+margin_left = 552.0
+margin_top = 331.0
+margin_right = 765.0
+margin_bottom = 373.0
+custom_fonts/font = SubResource( 3 )
+text = "Enrico Altavilla"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="Music"]
+margin_left = 376.0
+margin_top = 403.0
+margin_right = 616.0
+margin_bottom = 445.0
+custom_fonts/font = SubResource( 2 )
+text = "Winds of Venus"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="Music"]
+margin_left = 376.0
+margin_top = 435.0
+margin_right = 589.0
+margin_bottom = 477.0
+custom_fonts/font = SubResource( 3 )
+text = "Tomasz Kucza"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -144,6 +226,7 @@ margin_left = 584.0
 margin_top = 544.0
 margin_right = 984.0
 margin_bottom = 704.0
+mouse_default_cursor_shape = 3
 texture_normal = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -154,9 +237,58 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -100.0
+margin_left = -67.0
 margin_top = -35.0
-margin_right = 100.0
+margin_right = 67.0
 margin_bottom = 35.0
 custom_fonts/font = SubResource( 4 )
-text = "RETOUR"
+text = "BACK"
+
+[node name="TeamButton" type="TextureButton" parent="."]
+margin_left = 40.0
+margin_top = 544.0
+margin_right = 440.0
+margin_bottom = 704.0
+mouse_default_cursor_shape = 3
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TeamButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -72.0
+margin_top = -35.0
+margin_right = 72.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 4 )
+text = "TEAM"
+
+[node name="MusicButton" type="TextureButton" parent="."]
+visible = false
+margin_left = 40.0
+margin_top = 544.0
+margin_right = 440.0
+margin_bottom = 704.0
+mouse_default_cursor_shape = 3
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MusicButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -35.0
+margin_right = 75.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 4 )
+text = "MUSIC"
+[connection signal="pressed" from="TeamButton" to="." method="OnTeamButtonPressed"]
+[connection signal="pressed" from="MusicButton" to="." method="OnMusicButtonPressed"]
