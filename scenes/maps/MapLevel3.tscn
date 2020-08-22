@@ -513,7 +513,7 @@ position = Vector2( 2400, -24 )
 [node name="EntryLevel4" type="StaticBody2D" parent="." groups=[
 "entryLevel4",
 ]]
-position = Vector2( 40384, -1152 )
+position = Vector2( 40056, -1152 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntryLevel4"]
 shape = SubResource( 2 )

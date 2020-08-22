@@ -399,12 +399,16 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control"]
+visible = false
 margin_left = 24448.0
-margin_top = 1472.0
+margin_top = 1280.0
 margin_right = 25534.0
-margin_bottom = 1609.0
+margin_bottom = 1417.0
 custom_fonts/font = SubResource( 3 )
 text = "Thank you for playing"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Traps" type="Node2D" parent="."]
 

@@ -29,7 +29,6 @@ onready var timer_dash = $TimerDash
 var Fire = preload("res://scenes/Fire.tscn")
 
 var attacking = false
-var dashing = false
 
 var able_to_attack
 var able_to_dash

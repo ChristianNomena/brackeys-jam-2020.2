@@ -9,11 +9,11 @@ func _ready():
 
 
 func _process(delta):
-	$AnimationPlayer.play("idle")
+	pass
 
 
 func hurt():
-	self.health -= 100
+	self.health -= 10
 	self.die_verification()
 
 

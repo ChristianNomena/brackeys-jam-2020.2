@@ -5,7 +5,7 @@ var health = 100
 
 
 func _ready():
-	pass
+	$AnimationPlayer.play("idle")
 
 
 func _process(delta):
