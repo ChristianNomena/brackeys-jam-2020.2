@@ -16,7 +16,6 @@ func _physics_process(delta):
 		if "enemy" in collision.collider.get_groups():
 			collision.collider.hurt()
 		
-		print("bye2")
 		self.queue_free()
 
 

@@ -87,7 +87,7 @@ margin_top = 632.0
 margin_right = 748.0
 margin_bottom = 681.0
 custom_fonts/font = SubResource( 2 )
-text = "ATTACK and HEALING unlock"
+text = "ATTACK  unlock"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

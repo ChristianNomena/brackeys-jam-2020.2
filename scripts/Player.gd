@@ -29,7 +29,10 @@ onready var timer_dash = $TimerDash
 var Fire = preload("res://scenes/Fire.tscn")
 
 var attacking = false
-# var dashing = false
+var dashing = false
+
+var able_to_attack
+var able_to_dash
 
 
 func _ready():
@@ -61,8 +64,8 @@ func MovementLoop():
 	var right = Input.is_action_pressed("player_move_right")
 	
 	var jump = Input.is_action_just_pressed("player_jump")
-	var dash = Input.is_action_just_pressed("player_dash")
-	var attack = Input.is_action_just_pressed("player_attack")
+	var dash = Input.is_action_just_pressed("player_dash") and self.able_to_dash
+	var attack = Input.is_action_just_pressed("player_attack") and self.able_to_attack
 	
 	var healing = Input.is_action_just_pressed("player_interact")
 	
@@ -130,8 +133,10 @@ func MovementLoop():
 		# =============== Mouvement de Dash ===============
 		if (self.velocity.x >= 10 or self.velocity.x <= -10):
 			if dash:
-				self.MovementDash()
-				self.playerAnimState.travel("Dash")
+				if ($TimerCooldownDash.time_left < 0.1 and $TimerCooldownDash.time_left >= 0):
+					self.MovementDash()
+					self.playerAnimState.travel("Dash")
+					$TimerCooldownDash.start()
 
 
 func MovementDash():
@@ -175,7 +180,7 @@ func _on_Area2D_body_entered(body):
 		self.PlayerDie()
 		
 	if body.is_in_group("enemy"):
-		self.health -= 20
+		self.PlayerDie()
 	
 	if body.is_in_group("entryLevel2"):
 		get_tree().change_scene("res://scenes/stories/ReadyForLevel2.tscn")

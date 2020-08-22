@@ -13,7 +13,7 @@ func _process(delta):
 
 
 func hurt():
-	self.health -= 100
+	self.health -= 25
 	self.die_verification()
 
 
